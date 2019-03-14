@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ body { 
+    padding-top: 0px;
+    background-image: url(apartement.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+footer { margin-top: 100px; }
+table, td, th { vertical-align: middle; border: none; }
+th { border-bottom: 1px solid #DDD; }

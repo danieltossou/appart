@@ -7,9 +7,66 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
 
   <body>
-    <%= yield %>
+
+      <nav class="N/A transparent">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo">APPART</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              
+            </ul>
+          </div>
+        </nav>
+      
+        <ul class="sidenav" id="mobile-demo">
+          
+        </ul>
+
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+        <div class="container">
+          <%= yield %>
+        </div>
+
+
+        <!-- <footer>
+          <div class="container">
+            APPART <%= Time.now.year %>
+          </div>
+        </footer> -->
+        
+        <script type="text/javascript">
+          // Header select box
+          document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, []);
+          });
+
+          // Navbar mobile menu
+          document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems, options);
+          });
+
+          // Recommandations caroussel
+          document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.carousel');
+            var instances = M.Carousel.init(elems, []);
+          });
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>
