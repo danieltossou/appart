@@ -15,13 +15,12 @@
   </head>
 
   <body>
-
       <nav class="N/A transparent">
           <div class="nav-wrapper">
             <a href="/" class="brand-logo">APPART</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-              
+              <li><%= link_to  "Logement", locations_path %></li>
             </ul>
           </div>
         </nav>
@@ -33,9 +32,8 @@
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
 
-        <div class="container">
           <%= yield %>
-        </div>
+        
 
 
         <!-- <footer>
