@@ -31,7 +31,10 @@
     <% end %>
   </tbody>
 </table>
-
+<p>
+  <%= link_to_prev_page @locations, 'Page precedante' %>
+  <%= link_to_next_page @locations, 'Page suivante' %>
+</p>
 <br>
 
 <%= link_to 'New Location', new_location_path %>
