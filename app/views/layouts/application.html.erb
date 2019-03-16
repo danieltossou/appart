@@ -32,6 +32,7 @@
             <% else %>
               <li><%= link_to  "Connexion", new_user_session_path %></li>
               <li><%= link_to  "Connexion via facebook", user_facebook_omniauth_authorize_path %></li>
+              <li><%= link_to  "Connexion via google", user_google_oauth2_omniauth_authorize_path %></li>
               <li><%= link_to  "Inscription", new_user_registration_path %></li>
             <% end %>
         <ul class="sidenav" id="mobile-demo">

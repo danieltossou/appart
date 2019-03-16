@@ -22,6 +22,23 @@ class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   end
 
+  def google
+
+    @user = request.env['omniauth.auth']
+
+    if @user.persisted?
+
+      sign_in_and_redirect @user, event: :authentification
+
+    else
+
+      session['devise.goggle'] = request.env['omniauth.auth']
+      redirect_to new_user_registration_url
+
+    end
+
+  end
+
   # More info at:
   # https://github.com/plataformatec/devise#omniauth
 

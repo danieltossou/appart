@@ -71,4 +71,6 @@ gem 'omniauth', '~> 1.6', '>= 1.6.1'
 
 gem 'omniauth-facebook'
 
+gem 'omniauth-google-oauth2'
+
 gem 'cancancan', '~> 2.3'
