@@ -1,7 +1,8 @@
 class ReservationsController < ApplicationController
 
+    before_action :authenticate_user!, only: [:edit, :create, :destroy]
+
     def new
-        @location = Location.find(params[:id_appart])
         @reservation = Reservation.new
     end
 
@@ -10,7 +11,7 @@ class ReservationsController < ApplicationController
         if @reservation.save
             redirect_to locations_path, notice: 'Reservation effectué avec succès'
         else
-            render :new
+            format.html { render :new }
         end
 
     end
@@ -18,7 +19,7 @@ class ReservationsController < ApplicationController
     private
 
     def reservation_params
-        params.require(:reservation).permit(:nom, :prenom, :date_debut_reservation, :date_fin_reservation, :nbre_personne, :location_id)
+        params.require(:reservation).permit(:date_debut_reservation, :date_fin_reservation, :nbre_personne, :location_id, :user_id)
     end
     
 end

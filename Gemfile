@@ -64,3 +64,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'carrierwave','~>0.11.2'
 
 gem 'kaminari'
+
+gem 'devise', '~> 4.2'
+
+gem 'omniauth', '~> 1.6', '>= 1.6.1'
+
+gem 'omniauth-facebook'
+
+gem 'cancancan', '~> 2.3'

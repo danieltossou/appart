@@ -37,12 +37,11 @@
 <div class="col-md-12">
   <%= form_for @reservation do |f| %>
   
-  <%= f.text_field :nom, label: "NOM" %>
-  <%= f.text_field :prenom, label: "PRENOM" %>
   <%= f.number_field :nbre_personne, label: "Nombre de personne" %>
   <%= f.date_select :date_debut_reservation, label: "Date de debut" %>
   <%= f.date_select :date_fin_reservation, label: "Date de fin" %>
   <%= f.hidden_field :location_id, :value => @location.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.submit %>
   <% end %>
 </div>
