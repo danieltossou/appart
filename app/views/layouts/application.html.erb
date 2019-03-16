@@ -52,7 +52,7 @@
           // Navbar mobile menu
           document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems, options);
+            var instances = M.Sidenav.init(elems, []);
           });
 
           // Recommandations caroussel
@@ -60,6 +60,24 @@
             var elems = document.querySelectorAll('.carousel');
             var instances = M.Carousel.init(elems, []);
           });
+
+          // LOcation show slider
+          var instance = M.Carousel.init({
+            fullWidth: true
+          });
+
+          //Location show réserver buttons
+          /*document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems, []);
+          });*/
+          $(document).ready(function(){
+            $('.modal').modal();
+          });
+
+          // Location form textarea
+          $('#adresse').val('New Text');
+          M.textareaAutoResize($('#adresse'));
         </script>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

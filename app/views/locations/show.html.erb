@@ -1,40 +1,32 @@
-<p id="notice"><%= notice %></p>
-
+<!-- <p id="notice"><%= notice %></p>
 <p>
   <strong>Titre:</strong>
   <%= @location.titre %>
 </p>
-
 <p>
   <strong>Description:</strong>
   <%= @location.description %>
 </p>
-
 <p>
   <strong>Etat:</strong>
   <%= @location.etat %>
 </p>
-
 <p>
   <strong>Photo:</strong>
   <%= @location.photo %>
 </p>
-
 <p>
   <strong>Adresse:</strong>
   <%= @location.adresse %>
 </p>
-
 <p>
   <strong>Prix:</strong>
   <%= @location.prix %>
 </p>
-
-
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>
-
-<div class="col-md-12">
+ -->
+<!-- <div class="col-md-12">
   <%= form_for @reservation do |f| %>
   
   <%= f.text_field :nom, label: "NOM" %>
@@ -45,4 +37,141 @@
   <%= f.hidden_field :location_id, :value => @location.id %>
   <%= f.submit %>
   <% end %>
+</div> -->
+<div class="container-fluid">
+<div class="row">
+  <div class="col s12">
+    <div class="carousel carousel-slider">
+      <%= image_tag(@location.photo_url, width: '100%') if @location.photo.present? %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col s8">
+      <div class="row">
+        <div class="col s9">
+          <h5><%= @location.titre %></h5>
+          <p><b><%= @location.adresse %></b></p><br><br>
+          <p><%= @location.description %></p>
+        </div>
+        <div class="col s3">
+          <button class="waves-effect waves-light btn blue"><%= @location.etat %></button>
+          <p><b><%= @location.prix %> Fcfa</b></p>
+        </div>
+      </div><br>
+    
+      <p>
+        <%= link_to 'Edit', edit_location_path(@location) %> |
+        <%= link_to 'Destroy', @location, data: { confirm: 'Are you sure?' }, method: :delete %> |
+        <%= link_to 'Back', locations_path %>
+      </p>
+    </div>
+    <div class="col s4">
+      <div class="card white">
+        <div class="card-content">
+          <!-- Réserver box modal -->
+          <a class="waves-effect waves-light btn blue modal-trigger" href="#reserver">Reserver</a><br><br>
+          <!-- Louer box modal -->
+          <a class="waves-effect waves-light btn blue modal-trigger" href="#louer">Louer</a><br><br>
+
+          <!-- Réserver modal structure -->
+          <div id="reserver" class="modal modal-fixed-footer">
+            <%= form_for @reservation do |f| %>
+            <div class="modal-content">
+              <div class="row">
+                <div class="col s6">
+                    <div class="input-field">
+                      <%= f.text_field :nom %>
+                      <label for="nom">Nom</label>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="input-field">
+                      <%= f.text_field :prenom %>
+                      <label for="prenom">Prénom</label>
+                    </div>
+                </div>
+              </div>
+              <div class="input-field">
+                <%= f.number_field :nbre_personne, :min => '0' %>
+                <label for="nbre_personne">Nombre de personne</label>
+              </div>
+              
+              <div class="row">
+                <div class="col s6">
+                    <div class="input-field">
+                      <%= f.date_select :date_debut_reservation %>
+                      <label for="date_debut_reservation">Arrivée</label>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="input-field">
+                      <%= f.date_select :date_fin_reservation %>
+                      <label for="date_fin_reservation">Départ</label>
+                    </div>
+                </div>
+              </div><br><br>
+              <%= f.hidden_field :location_id, :value => @location.id %>   
+            </div>
+            <div class="modal-footer">
+              <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
+              <%= f.submit 'Valider', :class => 'waves-effect waves-light btn blue' %>
+            </div>
+            <% end %>
+          </div>
+
+          <!-- ouer modal structure -->
+          <div id="louer" class="modal modal-fixed-footer">
+              <%= form_for @reservation do |f| %>
+              <div class="modal-content">
+                <div class="row">
+                  <div class="col s6">
+                      <div class="input-field">
+                        <%= f.text_field :nom %>
+                        <label for="nom">Nom</label>
+                      </div>
+                  </div>
+                  <div class="col s6">
+                      <div class="input-field">
+                        <%= f.text_field :prenom %>
+                        <label for="prenom">Prénom</label>
+                      </div>
+                  </div>
+                </div>
+                <div class="input-field">
+                  <%= f.number_field :nbre_personne, :min => '0' %>
+                  <label for="nbre_personne">Nombre de personne</label>
+                </div>
+                
+                <!-- <div class="row">
+                  <div class="col s6">
+                      <div class="input-field">
+                        <%= f.date_select :date_debut_reservation %>
+                        <label for="date_debut_reservation">Arrivée</label>
+                      </div>
+                  </div>
+                  <div class="col s6">
+                      <div class="input-field">
+                        <%= f.date_select :date_fin_reservation %>
+                        <label for="date_fin_reservation">Départ</label>
+                      </div>
+                  </div>
+                </div><br><br> -->
+                <%= f.hidden_field :location_id, :value => @location.id %>   
+              </div>
+              <div class="modal-footer">
+                <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
+                <%= f.submit 'Valider', :class => 'waves-effect waves-light btn blue' %>
+              </div>
+              <% end %>
+            </div>
+
+          <p><b>Pour toutes informations<br> contactez-nous au 92691936</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

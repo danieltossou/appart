@@ -57,15 +57,20 @@
 
   <% @locations.in_groups_of(4) do |location| %>
   <div class="row">
-    <% group.compact.each do |location| %>
+    <% @locations.compact.each do |location| %>
       <div class="col s3">
         <%= image_tag location.photo_url, width: '100%' if location.photo.present? %>
-        <p><b><%= link_to location.adresse, location %></b></p>
-        <h4><%= link_to location.titre, location %></h4>
+        <p><b><%= location.adresse %></b></p>
+        <h4><%= location.titre %></h4>
       </div>
     <% end %>
   </div>
 <% end %>
+
+<p>
+  <%= link_to_prev_page @locations, 'Précedent' %>
+  <%= link_to_next_page @locations, 'Suivant' %>
+</p>
   
 </div>
 
