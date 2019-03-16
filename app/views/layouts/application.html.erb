@@ -21,6 +21,10 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
               <li><%= link_to  "LOGEMENTS", locations_path %></li>
+
+              <% if user_signed_in? %>
+                <%= link_to  "MES RESERVATIONS", me_reservations_path %>  
+              <% end %>
             </ul>
 
           

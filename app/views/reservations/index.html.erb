@@ -1,0 +1,17 @@
+<h1>MES RESERVATIONS</h1>
+
+<% @reservations.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |reservation| %>
+      <div class="col-md-4">
+        <%= image_tag reservation.location.photo_url, width: '100%' if reservation.location.photo.present? %>
+        <h4><%= reservation.location.titre %> </h4>
+        <%= reservation.location.description %>
+        <%= reservation.location.prix %>
+        <% if reservation.user %>
+          <%= reservation.user.email %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

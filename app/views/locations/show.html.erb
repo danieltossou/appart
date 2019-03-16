@@ -33,7 +33,9 @@
   <%= f.date_select :date_debut_reservation, label: "Date de debut" %>
   <%= f.date_select :date_fin_reservation, label: "Date de fin" %>
   <%= f.hidden_field :location_id, :value => @location.id %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <% if user_signed_in? %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  <% end %>
   <%= f.submit %>
   <% end %>
 </div> -->
@@ -79,7 +81,7 @@
           <div id="reserver" class="modal modal-fixed-footer">
             <%= form_for @reservation do |f| %>
             <div class="modal-content">
-              <div class="row">
+              <!--<div class="row">
                 <div class="col s6">
                     <div class="input-field">
                       <%= f.text_field :nom %>
@@ -92,7 +94,7 @@
                       <label for="prenom">Prénom</label>
                     </div>
                 </div>
-              </div>
+              </div>-->
               <div class="input-field">
                 <%= f.number_field :nbre_personne, :min => '0' %>
                 <label for="nbre_personne">Nombre de personne</label>
@@ -113,6 +115,9 @@
                 </div>
               </div><br><br>
               <%= f.hidden_field :location_id, :value => @location.id %>   
+              <% if user_signed_in? %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+              <% end %>
             </div>
             <div class="modal-footer">
               <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
@@ -125,7 +130,7 @@
           <div id="louer" class="modal modal-fixed-footer">
               <%= form_for @reservation do |f| %>
               <div class="modal-content">
-                <div class="row">
+                <!--<div class="row">
                   <div class="col s6">
                       <div class="input-field">
                         <%= f.text_field :nom %>
@@ -138,7 +143,7 @@
                         <label for="prenom">Prénom</label>
                       </div>
                   </div>
-                </div>
+                </div>-->
                 <div class="input-field">
                   <%= f.number_field :nbre_personne, :min => '0' %>
                   <label for="nbre_personne">Nombre de personne</label>
@@ -159,6 +164,9 @@
                   </div>
                 </div><br><br> -->
                 <%= f.hidden_field :location_id, :value => @location.id %>   
+                <% if user_signed_in? %>
+                  <%= f.hidden_field :user_id, :value => current_user.id %>
+                <% end %>
               </div>
               <div class="modal-footer">
                 <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
