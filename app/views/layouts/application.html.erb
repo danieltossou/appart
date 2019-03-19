@@ -18,12 +18,16 @@
       <nav class="N/A transparent">
           <div class="nav-wrapper">
             <a href="/" class="brand-logo">APPART</a>
+            <% if isAdmin? %>
+              <a href="<%= admin_root_path %>" class="">ADMIN</a>
+            <% end %>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
               <li><%= link_to  "LOGEMENTS", locations_path %></li>
 
               <% if user_signed_in? %>
                 <%= link_to  "MES RESERVATIONS", me_reservations_path %>  
+                <%= current_user.email %>
               <% end %>
             </ul>
 

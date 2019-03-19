@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :reservations
 
-
+  
   attr_accessor :login
 
 

@@ -10,8 +10,15 @@ class Ability
 
     can :read, Location
 
-    if user.id
-      can :manage, Reservation, {user_id: user.id}
+    
+
+    if user.role === 'admin'
+      can :manage, :all
+    else
+      if user.id
+        can :crud, Reservation, {user_id: user.id}
+      end
+      can :read, :all
     end
     
     #   user ||= User.new # guest user (not logged in)
