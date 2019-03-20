@@ -34,13 +34,13 @@
           
           </div>
         </nav>
-      <% if user_signed_in? %>
+            <% if user_signed_in? %>
               <li><%= link_to  "Deconnexion", destroy_user_session_path, method: :DELETE, data: { confirm:'Voulez-vous vous deconnecter ?' } %></li>
-            <% else %>
-              <li><%= link_to  "Connexion", new_user_session_path %></li>
-              <li><%= link_to  "Connexion via facebook", user_facebook_omniauth_authorize_path %></li>
-              <li><%= link_to  "Connexion via google", user_google_oauth2_omniauth_authorize_path %></li>
-              <li><%= link_to  "Inscription", new_user_registration_path %></li>
+            <%# <% else %>
+            <%#  <li><%= link_to  "Connexion", new_user_session_path %></li>
+            <%#  <li><%= link_to  "Connexion via facebook", user_facebook_omniauth_authorize_path %></li>
+            <%#  <li><%= link_to  "Connexion via google", user_google_oauth2_omniauth_authorize_path %></li>
+            <%#  <li><%= link_to  "Inscription", new_user_registration_path %></li> 
             <% end %>
         <ul class="sidenav" id="mobile-demo">
           

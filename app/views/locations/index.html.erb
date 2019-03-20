@@ -62,7 +62,7 @@
         <%= image_tag location.photo_url, width: '100%' if location.photo.present? %>
         <p><b><%= location.adresse %></b></p>
         <!-- <h4><%= location.titre %></h4> -->
-        <h4><%= link_to location.titre, location %></h4>
+        <h6><%= link_to location.titre, location %></h6>
       </div>
     <% end %>
   </div>
