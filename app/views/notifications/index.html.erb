@@ -1,0 +1,7 @@
+<h1>Notifications</h1>
+<% @notifications.each do |notification| %>
+    <h3><%= notification.reservation.location.titre %></h3>
+    <%= notification.user.email %> vient de reserver pour <%= notification.reservation.nbre_personne %> personne(s) l'appartement: <%= notification.reservation.location.titre.downcase %>
+    <br>
+    <%= notification.created_at %>
+<% end %>

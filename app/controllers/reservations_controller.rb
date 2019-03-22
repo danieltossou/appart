@@ -34,4 +34,5 @@ class ReservationsController < ApplicationController
         params.require(:reservation).permit(:date_debut_reservation, :date_fin_reservation, :nbre_personne, :location_id, :user_id)
     end
     
+    
 end
