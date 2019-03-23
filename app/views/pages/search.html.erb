@@ -1,0 +1,14 @@
+  <div class="row">
+    <% @locations.compact.each do |location| %>
+      <div class="col s3">
+        <%= image_tag location.photo_url, width: '100%' if location.photo.present? %>
+        <p><%= 'Disponible' if location.etat === true %></p>
+        <p><%= 'Ocupé' if location.etat === false %></p>
+        <p><b><%= location.adresse %></b></p>
+        <!-- <h4><%= location.titre %></h4> -->
+        <h4><%= link_to location.titre, location %></h4>
+        <p><%= location.description %></p>
+        <p>Prix: <%= location.prix %></p>
+      </div>
+    <% end %>
+  </div>

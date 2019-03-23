@@ -9,8 +9,11 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
-  resources :locations
+  resources :locations 
+  
   root to: 'pages#home'
+  get 'search', to: 'pages#search'
+  
   resources :reservations do
     collection do
       get 'me'

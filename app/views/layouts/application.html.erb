@@ -20,7 +20,8 @@
             <a href="/" class="brand-logo">APPART</a>
             <% if isAdmin? %>
               <a href="<%= admin_root_path %>" class="">ADMIN</a><br>
-              <a href="<%= notifications_path %>" class="">Notifications(<%= total %>)</a>
+              <a href="<%= notifications_path %>" class="">Notifications(<%= total_note %>)</a>
+              <a href="<%= new_location_path %>" class="">Créer un logement</a>
             <% end %>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">

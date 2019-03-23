@@ -6,11 +6,10 @@ class Ability
     
     user ||= User.new
 
-    alias_action :create, :read, :update, :destroy, to: :crud
+    alias_action :create, :read, :update, :destroy, :me, to: :crud
 
     can :read, Location
 
-    
 
     if user.role === 'admin'
       can :manage, :all
@@ -18,7 +17,6 @@ class Ability
       if user.id
         can :crud, Reservation, {user_id: user.id}
       end
-      can :read, :all
     end
     
     #   user ||= User.new # guest user (not logged in)
