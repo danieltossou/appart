@@ -29,6 +29,7 @@ class ReservationsController < ApplicationController
     end
     
     def show    
+        Notification.where(reservation_id: params[:id]).update(:vue => true)
     end
     
 
