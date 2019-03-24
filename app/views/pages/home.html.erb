@@ -52,7 +52,7 @@
     </div>
 </header><br><br>
 <!-- Fin Header -->
-
+<div class="container">
 <!-- Section Explorer -->
 <section class="explorer">
     <h4 class="black-text"><b>Explorer</b></h4>
@@ -64,7 +64,7 @@
                 <div class="col s5">
                     <%= image_tag "apartement.jpg", :class => 'responsive-img' %>
                 </div>
-                <div class="col s7"><p><b>Logements</b></p></div>
+                <div class="col s7"><p><b><%= link_to  "Logements", locations_path %></b></p></div>
             </div>
             </div>  
         </div>
@@ -116,3 +116,4 @@
     </div>
 </section>
 <!-- Fin Section recommandations -->
+</div>
