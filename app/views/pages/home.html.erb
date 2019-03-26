@@ -7,9 +7,11 @@
                     <div class="card-title">
                         <span><b>Trouver des logements partout à Bamako</b></span>
                     </div><br>
-                    <form action="">
+
+
+                        <%= form_tag("/search", method: "get") do %>
                             <div class="input-field col s12">
-                                <input placeholder="Commune ou quartier" id="lieu" type="text" name="">
+                                <%= text_field_tag(:q) %>
                                 <label for="lieu"><b>Où</b></label>
                             </div><br><br><br><br>
 
@@ -39,10 +41,10 @@
                                 <label><b>Genre</b></label>
                             </div><br><br><br><br>
                             <div style="padding-left:10px;">
-                                <input type="submit" value="Rechercher" class="waves-effect waves-light btn blue">
+                                <%= submit_tag('Rechercher', :class => 'waves-effect waves-light btn blue') %>
                             </div>
                         
-                    </form>
+                    <% end %>
                 </div>
             </div>
         </div>

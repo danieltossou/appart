@@ -4,7 +4,7 @@ module ApplicationHelper
         user_signed_in? && current_user.role == 'admin'
     end
 
-    def total
+    def total_note
         Notification.where(:vue => 0).count
     end
 

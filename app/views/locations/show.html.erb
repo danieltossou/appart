@@ -58,7 +58,7 @@
           <p><%= @location.description %></p>
         </div>
         <div class="col s3">
-          <button class="waves-effect waves-light btn blue"><%= @location.etat %></button>
+          <button class="waves-effect waves-light btn blue"><%= etat %></button>
           <p><b><%= @location.prix %> Fcfa</b></p>
         </div>
       </div><br>
@@ -114,6 +114,7 @@
                     </div>
                 </div>
               </div><br><br>
+                <%= f.hidden_field :type_reservation, :value => 'sejour' %> 
               <%= f.hidden_field :location_id, :value => @location.id %>   
               <% if user_signed_in? %>
                 <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -147,6 +148,7 @@
                 <div class="input-field">
                   <%= f.number_field :nbre_personne, :min => '0' %>
                   <label for="nbre_personne">Nombre de personne</label>
+
                 </div>
                 
                 <!-- <div class="row">
@@ -163,6 +165,7 @@
                       </div>
                   </div>
                 </div><br><br> -->
+                <%= f.hidden_field :type_reservation, :value => 'louer' %>  
                 <%= f.hidden_field :location_id, :value => @location.id %>   
                 <% if user_signed_in? %>
                   <%= f.hidden_field :user_id, :value => current_user.id %>

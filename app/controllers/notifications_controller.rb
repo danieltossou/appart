@@ -1,4 +1,7 @@
     class NotificationsController < ApplicationController
+      before_action :authenticate_user!
+      authorize_resource
+
       def index
         @notifications = Notification.non_vue
   

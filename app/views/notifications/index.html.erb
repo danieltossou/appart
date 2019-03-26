@@ -4,4 +4,6 @@
     <%= notification.user.email %> vient de reserver pour <%= notification.reservation.nbre_personne %> personne(s) l'appartement: <%= notification.reservation.location.titre.downcase %>
     <br>
     <%= notification.created_at %>
-<% end %>
+    <br>
+    <%= link_to 'Detail', reservation_path(notification.reservation_id) %>
+    <% end %>
