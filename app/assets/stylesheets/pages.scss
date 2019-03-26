@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .explorer {
-    margin-top: 70px;
+    margin-top: 10%;
 }
 header {
     padding-top: 60px;
@@ -19,3 +19,7 @@ header {
 .hote-btn {
     margin: 180px 0px 0px 350px;
 }
+.container-fluid {
+    background-color: white;
+}
+

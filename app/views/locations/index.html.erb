@@ -1,57 +1,17 @@
-<!-- <p id="notice"><%= notice %></p>
-
-<h1>Locations</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Titre</th>
-      <th>Description</th>
-      <th>Etat</th>
-      <th>Photo</th>
-      <th>Adresse</th>
-      <th>Prix</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @locations.each do |location| %>
-      <tr>
-        <td><%= location.titre %></td>
-        <td><%= location.description %></td>
-        <td><%= location.etat %></td>
-        <td><%= location.photo %></td>
-        <td><%= location.adresse %></td>
-        <td><%= location.prix %></td>
-        <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<p>
-  <%= link_to_prev_page @locations, 'Page precedante' %>
-  <%= link_to_next_page @locations, 'Page suivante' %>
-</p>
-<br>
-
-<%= link_to 'New Location', new_location_path %> -->
-
 <div class="container-fluid">
   <div class="row">
     <div class="col s4">
-        <div class="card">
-        <%= form_tag("/search", method: "get") do %>
-          <div class="input-field col s12">
-              <%= text_field_tag(:q) %>
+        <div class="card white">
+          <div class="row">
+            <%= form_tag("/search", method: "get") do %>
+            <div class="input-field col s7">
+                <%= text_field_tag(:q) %>
+            </div>
+            <div class="input-field col s5" style="padding-left:10px;">
+                <%= submit_tag('Rechercher', :class => 'waves-effect waves-light btn blue') %>
+            </div>
+          <% end %>
           </div>
-          <div style="padding-left:10px;">
-              <%= submit_tag('Rechercher', :class => 'waves-effect waves-light btn blue') %>
-          </div>
-      
-        <% end %>
         </div>
     </div>
     <div class="col s8"></div>
@@ -61,7 +21,7 @@
   <div class="row">
     <% @locations.compact.each do |location| %>
       <div class="col s3">
-        <%= image_tag location.photo_url, width: '100%' if location.photo.present? %>
+        <%= image_tag location.photo_url, width: '100%', height: '120px' if location.photo.present? %>
         <p><b><%= location.adresse %></b></p>
         <!-- <h4><%= location.titre %></h4> -->
         <h6><%= link_to location.titre, location %></h6>
