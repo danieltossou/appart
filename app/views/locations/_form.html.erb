@@ -3,7 +3,7 @@
     <div class="col s10">
       <div class="card white">
         <div class="card-content">
-            <%= form_with(model: location, local: true) do |form| %>
+            <%= form_with(model: location, local: true, :html => { :multipart => true }) do |form| %>
             <% if location.errors.any? %>
               <div id="error_explanation">
                 <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
@@ -50,12 +50,21 @@
                 </div>
             </div> -->
             <div class="field">
-              <%= form.file_field :photo %>
             </div>
+            <%= form.fields_for :images do |p| %>
+             <div class="field">
+              <%= p.file_field :titre, :multiple => true, name: "images[titre][]" %>
+             </div>
+           <% end %>
           
             <div class="input-field">
               <%= form.number_field :prix, :min => '0' %>
               <label for="prix">Prix</label>
+            </div>
+
+            <div class="form-group">
+                <label>Durée</label>
+                <%= form.select :duree, [['Prix par...', nil], 'jour', 'mois'] %>
             </div>
         
             <div class="actions">

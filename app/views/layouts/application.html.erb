@@ -30,7 +30,7 @@
             <ul>
               <% if user_signed_in? %>
                 <%= link_to  "MES RESERVATIONS", me_reservations_path %>  
-                <%= current_user.email %>
+                <%= current_user.nom %>
               <% end %>
             </ul>
 

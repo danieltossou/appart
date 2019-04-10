@@ -6,18 +6,20 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.dispo.all.page(params[:page])
+    @locations = Location.dispo.includes(:images).page(params[:page])
   end
 
   # GET /locations/1
   # GET /locations/1.json
   def show
+    @images = @location.images.all
     @reservation = Reservation.new
   end
 
   # GET /locations/new
   def new
     @location = Location.new
+   @image = @location.images.build
   end
 
   # GET /locations/1/edit
@@ -31,6 +33,10 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.save
+       params[:images]['titre'].each do |a|
+        @image = @location.images.create!(:titre => a)
+       end
+
         format.html { redirect_to @location, notice: 'Location was successfully created.' }
         format.json { render :show, status: :created, location: @location }
       else
@@ -57,6 +63,7 @@ class LocationsController < ApplicationController
   # DELETE /locations/1
   # DELETE /locations/1.json
   def destroy
+    @location.images.delete
     @location.destroy
     respond_to do |format|
       format.html { redirect_to locations_url, notice: 'Location was successfully destroyed.' }
@@ -72,6 +79,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:titre, :description, :etat, :photo, :adresse, :prix)
+      params.require(:location).permit(:titre, :description, :etat, :adresse, :prix, :duree, images_attributes: [:id, :location, :titre])
     end
 end

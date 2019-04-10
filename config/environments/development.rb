@@ -62,12 +62,10 @@ Rails.application.configure do
   #Default hostname
 
   # Mailer
-  config.action_mailer.default_url_options = {host: 'http://localhost', port: 3000}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'localhost',
-    port: 1025, 
-    domian: 'localhost'
+    port: 1025
   }
   
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }

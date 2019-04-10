@@ -21,7 +21,7 @@
   <div class="row">
     <% @locations.compact.each do |location| %>
       <div class="col s3">
-        <%= image_tag location.photo_url, width: '100%', height: '120px' if location.photo.present? %>
+        <%= image_tag location.images.first.titre_url, width: '100%', height: '120px' if location.images.present? %>
         <p><b><%= location.adresse %></b></p>
         <!-- <h4><%= location.titre %></h4> -->
         <h6><%= link_to location.titre, location %></h6>
