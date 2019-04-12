@@ -133,40 +133,10 @@
           <div id="louer" class="modal modal-fixed-footer">
               <%= form_for @reservation do |f| %>
               <div class="modal-content">
-                <!--<div class="row">
-                  <div class="col s6">
-                      <div class="input-field">
-                        <%= f.text_field :nom %>
-                        <label for="nom">Nom</label>
-                      </div>
-                  </div>
-                  <div class="col s6">
-                      <div class="input-field">
-                        <%= f.text_field :prenom %>
-                        <label for="prenom">Prénom</label>
-                      </div>
-                  </div>
-                </div>-->
                 <div class="input-field">
                   <%= f.number_field :nbre_personne, :min => '0' %>
                   <label for="nbre_personne">Nombre de personne</label>
-
                 </div>
-                
-                <!-- <div class="row">
-                  <div class="col s6">
-                      <div class="input-field">
-                        <%= f.date_select :date_debut_reservation %>
-                        <label for="date_debut_reservation">Arrivée</label>
-                      </div>
-                  </div>
-                  <div class="col s6">
-                      <div class="input-field">
-                        <%= f.date_select :date_fin_reservation %>
-                        <label for="date_fin_reservation">Départ</label>
-                      </div>
-                  </div>
-                </div><br><br> -->
                 <%= f.hidden_field :type_reservation, :value => 'louer' %>  
                 <%= f.hidden_field :location_id, :value => @location.id %>   
                 <% if user_signed_in? %>

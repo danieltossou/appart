@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resources :reservations do
     collection do
       get 'me'
+      get 'confirmation/:id', to: 'reservations#confirmation', as: 'confirmation'
+      get 'contrat/:id.pdf', to: 'reservations#contrat', as: 'contrat'
     end
   end
   resources :notifications, except: [:edit, :update]

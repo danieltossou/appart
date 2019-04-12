@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
 
-    before_action :set_reservation, only: [:show]
+    before_action :set_reservation, only: [:show, :confirmation, :contrat]
     before_action :authenticate_user!, only: [:edit, :create, :destroy, :me]
 
     authorize_resource
@@ -15,8 +15,8 @@ class ReservationsController < ApplicationController
 
     def create
         @reservation = current_user.reservations.new(reservation_params)
-        if @reservation.save
-            redirect_to locations_path, notice: 'Reservation effectué avec succès'
+        if @reservation.save 
+            redirect_to confirmation_reservations_path(@reservation), notice: 'Veuillez confirmer votre reservation'
         else
             format.html { render :new }
         end
@@ -24,12 +24,21 @@ class ReservationsController < ApplicationController
     end
 
     def me
-        @reservations = current_user.reservations
+        @reservations = current_user.reservations.includes(:location).alpha
         render :index
     end
     
     def show    
         Notification.where(reservation_id: params[:id]).update(:vue => true)
+    end
+
+    def confirmation
+    end
+
+    def contrat
+        respond_to do |format|
+            format.pdf { render template: 'reservations/contrat', pdf: 'Contrat' }
+        end
     end
     
 

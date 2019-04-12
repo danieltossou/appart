@@ -17,5 +17,6 @@ class Reservation < ApplicationRecord
 
     end
 
+    scope :alpha, -> { order(id: :desc) }
 
 end

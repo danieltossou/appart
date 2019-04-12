@@ -6,7 +6,7 @@ class Ability
     
     user ||= User.new
 
-    alias_action :create, :read, :update, :destroy, :me, to: :crud
+    alias_action :create, :read, :update, :destroy, :me, :confirmation, :contrat, to: :crud
 
     can :read, Location
 

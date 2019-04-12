@@ -11,6 +11,7 @@
         <% if reservation.user %>
           <%= reservation.user.email %>
         <% end %>
+        <%= link_to 'CONFIRMATION', confirmation_reservations_path(reservation) %>
       </div>
     <% end %>
   </div>

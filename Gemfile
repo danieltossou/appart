@@ -80,3 +80,6 @@ gem 'activeadmin'
 gem 'draper'
 
 gem 'pundit'
+
+gem 'wicked_pdf'
+
