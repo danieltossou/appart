@@ -1,119 +1,130 @@
 <!-- Header -->
 <header>
-    <div class="row">
-        <div class="col s4 push-s1">
-            <div class="card white col s12 search-form">
-                <div class="card-content">
-                    <div class="card-title">
-                        <span><b>Trouver des logements partout à Bamako</b></span>
-                    </div><br>
-
-
-                        <%= form_tag("/search", method: "get") do %>
-                            <div class="input-field col s12">
-                                <%= text_field_tag(:q) %>
-                                <label for="lieu"><b>Où</b></label>
-                            </div><br><br><br><br>
-
-                            <div style="padding-left:10px;">
-                                <label><b>Colocation ?</b><br><br>
-                                    <p>
-                                        <label>
-                                            <input name="" type="radio" />
-                                            <span>OUI</span>
-                                        </label>    
-                                    </p>
-                                    <p>
-                                        <label>
-                                            <input name="" type="radio" />
-                                            <span>NON</span>
-                                        </label>
-                                    </p>
-                                </label>
-                            </div><br>
-
-                            <div class="input-field col s12">
-                                <select>
-                                    <option value="" disabled selected>Type de logements</option>
-                                    <option value="">Villa</option>
-                                    <option value="">Appartement</option>
-                                </select>
-                                <label><b>Genre</b></label>
-                            </div><br><br><br><br>
-                            <div style="padding-left:10px;">
-                                <%= submit_tag('Rechercher', :class => 'waves-effect waves-light btn blue') %>
-                            </div>
-                        
-                    <% end %>
+    <div class="header-content">
+        <div class="row">
+            <div class="col s12 m8">
+                <h1 class="white-text" style="font-weight:bold;">
+                    La solution rapide et simple pour vous loger au Mali
+                </h1><br>
+                <p class="white-text" style="font-size:20px">Avec plus de 20.000 logements de choix, vous êtes sûr de trouver votre nouveau chez-vous.</p>
+            </div>
+            <div class="col s12 m4">
+                <div class="card white col s10 search-form">
+                    <div class="card-content">
+                        <div class="card-title">
+                            <span><b>Trouver des logements partout au Mali</b></span>
+                        </div><br>
+    
+    
+                            <%= form_tag("/search", method: "get") do %>
+                                <div class="input-field col s12">
+                                    <%= text_field_tag(:q) %>
+                                    <label for="lieu"><b>Où</b></label>
+                                </div><br><br><br><br>
+                                <div class="input-field col s12">
+                                    <select>
+                                        <option value="" disabled selected>Logement</option>
+                                        <option value="">Villa</option>
+                                        <option value="">Appartement</option>
+                                    </select>
+                                    <label><b>Type de logements</b></label>
+                                </div><br><br><br><br>
+                                <div class="input-field col s12">
+                                    <select>
+                                        <option value="" selected>Bamako</option>
+                                        <option value="" disabled>Ségou</option>
+                                        <option value="" disabled>Sikasso</option>
+                                        <option value="" disabled>Mopti</option>
+                                        <option value="" disabled>Kayes</option>
+                                        <option value="" disabled>Gao</option>
+                                        <option value="" disabled>Tombouctou</option>
+                                    </select>
+                                    <label><b>Région</b></label>
+                                </div><br><br><br><br>
+                                <div style="padding-left:10px;">
+                                    <%= submit_tag('Rechercher', :class => 'waves-effect waves-light btn green') %>
+                                </div>
+                        <% end %>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col s7"></div>
     </div>
 </header><br><br>
 <!-- Fin Header -->
-<div class="container">
-<!-- Section Explorer -->
-<section class="explorer">
-    <h4 class="black-text"><b>Explorer</b></h4>
+
+<!-- Section Mission -->
+<section class="mission">
     <div class="row">
-        <!-- Logements -->
-        <div class="col s4">
-            <div class="card">
-            <div class="row">
-                <div class="col s5">
-                    <%= image_tag "apartement.jpg", :class => 'responsive-img' %>
-                </div>
-                <div class="col s7"><p><b><%= link_to  "Logements", locations_path %></b></p></div>
-            </div>
-            </div>  
+        <div class="col s12 m4">
+            <%= image_tag("tablette.jpg", class: "responsive-img") %>
         </div>
-        <!-- Espaces récréatifs -->
-        <div class="col s4">
-            <div class="card">
+        <div class="col s12 m8">
+            <h2 class="green-text"><b>NOTRE MISSION</b></h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi aliquam totam quisquam! 
+            Nostrum vitae molestiae officia odit quidem voluptates voluptatem pariatur. Quam vero animi 
+            culpa at. Rem voluptatem asperiores nostrum?</p>
             <div class="row">
-                <div class="col s5">
-                    <%= image_tag "apartement.jpg", :class => 'responsive-img' %>
+                <div class="col s12 m6">
+                    <i class="material-icons">menu</i><br>
+                    <p class="green-text"><b>EFFICACITÉ</b></p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit voluptate minima in,
+                     sed eum quibusdam repudiandae aut assumenda voluptatum est.</p>
                 </div>
-                <div class="col s7"><p><b>Espaces récréatifs</b></p></div>
-            </div>
-            </div>  
-        </div>
-        <!-- Lieux de fêtes -->
-        <div class="col s4">
-            <div class="card">
-            <div class="row">
-                <div class="col s5">
-                    <%= image_tag "apartement.jpg", :class => 'responsive-img' %>
+                <div class="col s12 m6">
+                    <i class="material-icons">menu</i><br>
+                    <p class="green-text"><b>EFFICACITÉ</b></p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit voluptate minima in,
+                    sed eum quibusdam repudiandae aut assumenda voluptatum est.</p>
                 </div>
-                <div class="col s7"><p><b>Lieux de fête</b></p></div>
+                <div class="col s12 m6">
+                    <i class="material-icons">menu</i><br>
+                    <p class="green-text"><b>EFFICACITÉ</b></p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit voluptate minima in,
+                    sed eum quibusdam repudiandae aut assumenda voluptatum est.</p>
+                </div>
+                <div class="col s12 m6">
+                    <i class="material-icons">menu</i><br>
+                    <p class="green-text"><b>EFFICACITÉ</b></p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit voluptate minima in,
+                    sed eum quibusdam repudiandae aut assumenda voluptatum est.</p>
+                </div>
             </div>
-            </div>  
         </div>
     </div>
 </section>
-<!-- Fin Section Explorer -->
+<!-- Fin Section Mission -->
 
-<!-- Section Hote -->
-<section class="hote">
-    <h4 class="black-text"><b>APPART Hébergeur</b></h4>
-    <p>offrez des hébergements chez vous et obtenez des revenus.</p>
-    <div class="hote-bg">
-        <button class="hote-btn waves-effect waves-light btn blue">Devenez hôte</button>
-    </div>  
-</section>
-<!-- Fin Section Hote -->
+<!-- Section Work -->
+<section class="work">
+    <h2 class="white-text center"><b>COMMENT ÇA MARCHE</b></h2><br>
+    <div class="row">
+        <div class="col s12 m4 white-text">
+            <h5 class="white-text">1.RECHERCHER</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt modi nesciunt culpa
+             minima tempore quae deleniti a tempora dignissimos eligendi!</p>
+        </div>
+        <div class="col s12 m4 white-text">
+            <h5 class="white-text">2.SELECTIONNER</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt modi nesciunt culpa
+            minima tempore quae deleniti a tempora dignissimos eligendi!</p>
+        </div>
+        <div class="col s12 m4 white-text">
+            <h5 class="white-text">3.VALIDER</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt modi nesciunt culpa
+            minima tempore quae deleniti a tempora dignissimos eligendi!</p>
+        </div>
+    </div> 
+</section><br>
+<!-- Fin Section Work -->
 
-<!-- Section recommandations -->
-<section class="recommandations">
-    <h4 class="black-text"><b>Lieux de fête : nos recommandations</b></h4>
-    <div class="carousel">
-        <a class="carousel-item" href="#one!"><%= image_tag "apartement.jpg", :class => 'responsive-img' %></a>
-        <a class="carousel-item" href="#two!"><%= image_tag "apartement.jpg", :class => 'responsive-img' %></a>
-        <a class="carousel-item" href="#three!"><%= image_tag "apartement.jpg", :class => 'responsive-img' %></a>
-        <a class="carousel-item" href="#four!"><%= image_tag "apartement.jpg", :class => 'responsive-img' %></a>
-        <a class="carousel-item" href="#five!"><%= image_tag "apartement.jpg", :class => 'responsive-img' %></a>
+<!-- Section CTA -->
+<section class="cta">
+    <p class="center" style="font-size:18px;">
+        Vous désirez <span style="font-size:25px;"> VENDRE</span> ou <span style="font-size:25px;">FAIRE LOUER</span> votre maison ?
+    </p><br>
+    <div class="center">
+        <button class="waves-effect waves-light btn blue">CONTACTEZ-NOUS</button>
     </div>
-</section>
-<!-- Fin Section recommandations -->
-</div>
+</section><br>
+<!-- Fin Section CTA -->
