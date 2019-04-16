@@ -2,10 +2,17 @@
 <html>
   <head>
     <title>Appart</title>
+    <meta charset="utf-8">
   </head>
   <body>
-        <h1>CONTRAT</h1>
-        <h4><%= @reservation.location.titre %> </h4>
+        <h2 class="text-center">CONTRAT</h2>
+
+        <p style="font-size:16px">
+          Par la ratification de ce contrat vous vous engagez à respecter les exigences et termes 
+          de la réservation d'un logement sur la plateforme <b>APPART</b>.
+        </p><br>
+        
+        <%= @reservation.location.titre %>
         <%= @reservation.location.description %>
         <%= @reservation.location.prix %>
         <%= @reservation.nbre_personne %>
@@ -13,3 +20,5 @@
         <%= @reservation.date_fin_reservation %>
   </body>
 </html>
+
+

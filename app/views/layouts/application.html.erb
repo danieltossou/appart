@@ -109,19 +109,13 @@
         var instances = M.Sidenav.init(elems, []);
       });
 
-      // Testimonial caroussel
+      //Location caroussel
       $(document).ready(function(){
         $('.carousel.carousel-slider').carousel({
           fullWidth: true,
           indicators: true
         });
       });
-      
-      // Location show slider
-      var instance = M.Carousel.init({
-        fullWidth: true
-      });
-
       //Location show réserver buttons
       /*document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('.modal');
@@ -132,8 +126,11 @@
       });
 
       // Location form textarea
-      $('#adresse').val('New Text');
-      M.textareaAutoResize($('#adresse'));
+      $(document).ready(function(){
+        $('#adresse').val('New Text');
+        M.textareaAutoResize($('#adresse'));
+      });
+     
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

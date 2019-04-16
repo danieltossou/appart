@@ -1,17 +1,23 @@
-<h1>MES RESERVATIONS</h1>
+<h3>MES RESERVATIONS</h3>
 
-<% @reservations.in_groups_of(3) do |group| %>
+<% @reservations.in_groups_of(4) do |reservation| %>
   <div class="row">
     <% group.compact.each do |reservation| %>
-      <div class="col-md-4">
-        <%= image_tag reservation.location.photo_url, width: '100%' if reservation.location.photo.present? %>
-        <h4><%= reservation.location.titre %> </h4>
-        <%= reservation.location.description %>
-        <%= reservation.location.prix %>
-        <% if reservation.user %>
-          <%= reservation.user.email %>
-        <% end %>
-        <%= link_to 'CONFIRMATION', confirmation_reservations_path(reservation) %>
+      <div class="col s12 m3">
+        <%= image_tag reservation.location.photo_url, width: '100%', height: '120px' if reservation.location.photo.present? %>
+        <div class="row">
+          <div class="col s8">
+              <h5><%= reservation.location.titre %> </h5>
+              <p><%= reservation.location.description %></p>
+          </div>
+          <div class="col s4">
+              <p><b><%= reservation.location.prix %></b></p>
+              <% if reservation.user %>
+                <p><%= reservation.user.email %></p>
+              <% end %>
+          </div>
+        </div>
+        <%= link_to 'CONFIRMATION', confirmation_reservations_path(reservation), class: 'waves-effect waves-light btn green' %>
       </div>
     <% end %>
   </div>

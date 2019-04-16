@@ -1,9 +1,35 @@
-<h1>Notifications</h1>
-<% @notifications.each do |notification| %>
-    <h3><%= notification.reservation.location.titre %></h3>
-    <%= notification.user.email %> vient de reserver pour <%= notification.reservation.nbre_personne %> personne(s) l'appartement: <%= notification.reservation.location.titre.downcase %>
-    <br>
-    <%= notification.created_at %>
-    <br>
-    <%= link_to 'Detail', reservation_path(notification.reservation_id) %>
-    <% end %>
+<div class="container">
+    <div class="row">
+      <div class="col s12 m8 push-m2">
+            <h3>Notifications</h3>
+            <table class="highlight">
+                <thead>
+                  <tr>
+                      <th>Appartement</th>
+                      <th>Futur locataire</th>
+                      <th>Nombre de personne</th>
+                      <th>Date de réservation</th>
+                  </tr>
+                </thead>
+            <% @notifications.each do |notification| %>
+                <!-- <h3><%= notification.reservation.location.titre %></h3>
+                <%= notification.user.email %> vient de reserver pour <%= notification.reservation.nbre_personne %> personne(s) l'appartement: <%= notification.reservation.location.titre.downcase %>
+                <br>
+                <%= notification.created_at %>
+                <br> -->
+                <tbody>
+                    <tr>
+                      <td><%= notification.reservation.location.titre %></td>
+                      <td><%= notification.user.email %></td>
+                      <td><%= notification.reservation.nbre_personne %></td>
+                      <td><%= notification.created_at %></td>
+                    </tr>
+                  </tbody>
+                <%= link_to 'Detail', reservation_path(notification.reservation_id)%>
+                <% end %>
+            </table>
+                        
+      </div>
+    </div>
+</div>    
+

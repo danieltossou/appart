@@ -1,15 +1,29 @@
-<h1>CONFIRMATION</h1>
-
+<div class="container">
   <div class="row">
-      <div class="col-md-12">
-        <h4><%= @reservation.location.titre %> </h4>
-        <%= @reservation.location.description %>
-        <%= @reservation.location.prix %>
-        <%= @reservation.nbre_personne %>
-        <%= @reservation.date_debut_reservation %>
-        <%= @reservation.date_fin_reservation %>
-        <button class="btn btn-success">
-          <%= link_to 'Confirmer', contrat_reservations_path %>
-        </button>
-      </div>
+    <div class="col s12 m8 push-m2">
+      <h4>Confirmer votre réservation</h4>
+      <table>
+        <thead>
+          <tr>
+              <th>Appartement</th>
+              <th>Description</th>
+              <th>Prix</th>
+              <th>Nombre de personne</th>
+              <th>Date d'entrée</th>
+              <th>Date de sortie</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @reservation.location.titre %></td>
+            <td><%= @reservation.location.description %></td>
+            <td><%= @reservation.nbre_personne %></td>
+            <td><%= @reservation.date_debut_reservation %></td>
+            <td><%= @reservation.date_fin_reservation %></td>
+            <td><%= link_to 'CONFIRMER', contrat_reservations_path, class: "waves-effect waves-light btn green"%></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+</div>
