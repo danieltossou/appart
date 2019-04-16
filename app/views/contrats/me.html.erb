@@ -3,14 +3,14 @@
 <% @contrats.in_groups_of(3) do |group| %>
   <div class="row">
     <% group.compact.each do |contrat| %>
-      <div class="col-md-4">
+      <div class="col s4">
         <h4><%= contrat.reservation.location.titre %> </h4>
         <%= contrat.reservation.location.description %>
         <%= contrat.reservation.location.prix %>
         <% if contrat.user %>
           <%= contrat.user.email %>
         <% end %>
-        <%= link_to 'Voir le contrat', contrat_path(contrat) %>
+        <%= link_to 'Voir le contrat', contrat_path(contrat), :class => "waves-effect waves-light btn green" %>
       </div>
     <% end %>
   </div>

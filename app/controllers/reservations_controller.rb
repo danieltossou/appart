@@ -1,7 +1,6 @@
 class ReservationsController < ApplicationController
 
-    before_action :set_reservation, only: [:show]
-    before_action :authenticate_user!, only: [:edit, :create, :destroy, :me]
+    before_action :authenticate_user!, only: [:update, :create, :destroy, :me]
     load_and_authorize_resource
 
     def index
@@ -21,7 +20,6 @@ class ReservationsController < ApplicationController
                 format.html { redirect_to location_path(@reservation.location_id), notice: 'Reservation non effectuée' }
             end
         end
-
     end
 
     def me

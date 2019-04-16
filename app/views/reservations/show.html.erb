@@ -3,7 +3,7 @@
   <div class="col s12">
     <div class="carousel carousel-slider">
       <% @images.each do | image | %>
-        <%= image_tag(image.titre_url, width: '10%') if image.titre.present? %>
+        <a class="carousel-item" href="#"><%= image_tag(image.titre_url, width: '100%') if image.present? %></a>
       <% end %>
     </div>
   </div>
@@ -24,6 +24,7 @@
         </div>
       </div><br>
     </div>
+        <%= link_to 'CONFIRMER', confirmation_contrats_path(@reservation), class: 'waves-effect waves-light btn green' %>
   </div>
 </div>
 </div>

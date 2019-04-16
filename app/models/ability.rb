@@ -12,10 +12,12 @@ class Ability
 
 
     if user.role === 'admin'
-      can :manage, :all
+      can [ Reservation, Location ], :all
+      can [:index, :show, :create, :me, :confirmation], Contrat
     else
       if user.id
-        can :manage, Reservation, {user_id: user.id}
+        can :manage, Reservation, { user_id: user.id }
+        can [:show, :create, :me, :confirmation], Contrat, { user_id: user.id }
       end
     end
     

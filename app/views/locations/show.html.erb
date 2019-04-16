@@ -3,7 +3,7 @@
   <div class="col s12">
     <div class="carousel carousel-slider">
       <% @images.each do | image | %>
-        <a class="carousel-item" href="#"><%= image_tag(image.titre_url, width: '20%') if image.titre.present? %></a>
+        <a class="carousel-item" href="#"><%= image_tag(image.titre_url, width: '100%') if image.titre.present? %></a>
       <% end %>
     </div>
   </div>

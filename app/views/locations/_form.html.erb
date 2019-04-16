@@ -31,24 +31,8 @@
               <label for="adresse">Adresse</label>
             </div>
           
-            <div class="field">
-              <p>
-                <label>
-                  <%= form.check_box :etat %>
-                  <span>Etat</span>
-                </label>
-              </p>
-            </div>
+            <%= form.hidden_field :etat, :value => :true %>
           
-            <!-- <div class="file-field input-field">
-              <div class="'waves-effect waves-light btn blue">
-                <span>Photo</span>
-                <input type="file">
-              </div>
-                <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text" name="photo">
-                </div>
-            </div> -->
             <div class="field">
             </div>
             <%= form.fields_for :images do |p| %>

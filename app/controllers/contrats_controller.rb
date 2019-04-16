@@ -1,7 +1,8 @@
 class ContratsController < ApplicationController
 
     before_action :set_reservation, only: [:show, :contrat, :confirmation]
-
+    load_and_authorize_resource
+    
   def index
   	@contrats = Contrat.all
   end
