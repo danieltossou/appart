@@ -15,7 +15,7 @@ class Ability
       can :manage, :all
     else
       if user.id
-        can :crud, Reservation, {user_id: user.id}
+        can :manage, Reservation, {user_id: user.id}
       end
     end
     

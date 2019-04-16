@@ -4,7 +4,7 @@ class Location < ApplicationRecord
 
   validates :duree, presence: { message: ': Vous devez choisir une durée' }
   validates :adresse, presence: { message: ': Vous devez renseigner l\'adresse' }
-  validates :images, presence: { message: ': Vous devez ajouter des images' }
+  # validates :images, presence: { message: ': Vous devez ajouter des images de l\'appartement' }
   validates :prix, presence: { message: ': Vous devez preciser le prix' }
 
   default_scope { order(created_at: :desc) }

@@ -1,7 +1,9 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
 
+  
   authorize_resource
+
 
   # GET /locations
   # GET /locations.json
@@ -30,13 +32,12 @@ class LocationsController < ApplicationController
   # POST /locations.json
   def create
     @location = Location.new(location_params)
-
     respond_to do |format|
       if @location.save
-       params[:images]['titre'].each do |a|
+        params[:images]['titre'].each do |a|
         @image = @location.images.create!(:titre => a)
-       end
-
+      end
+      
         format.html { redirect_to @location, notice: 'Location was successfully created.' }
         format.json { render :show, status: :created, location: @location }
       else

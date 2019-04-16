@@ -29,7 +29,13 @@
             </ul>
             <ul>
               <% if user_signed_in? %>
-                <%= link_to  "MES RESERVATIONS", me_reservations_path %>  
+                  <% if isAdmin? %>
+                    <%= link_to  "LES RESERVATIONS", reservations_path %>
+                    <%= link_to  "LES CONTRATS", contrats_path %> 
+                  <% else %>
+                    <%= link_to  "MES RESERVATIONS", me_reservations_path %>
+                    <%= link_to  "MES CONTRATS", me_contrats_path %>  
+                  <% end %>
                 <%= current_user.nom %>
               <% end %>
             </ul>

@@ -8,8 +8,12 @@
         <%= @reservation.nbre_personne %>
         <%= @reservation.date_debut_reservation %>
         <%= @reservation.date_fin_reservation %>
-        <button class="btn btn-success">
-          <%= link_to 'Confirmer', contrat_reservations_path %>
-        </button>
+
+        <%= form_for @contrat do |form| %>
+
+          <%= form.hidden_field :reservation_id, :value => @reservation.id %>
+          <%= form.submit 'Confirmer', :class => "btn btn-success" %>
+
+        <% end %>
       </div>
   </div>
