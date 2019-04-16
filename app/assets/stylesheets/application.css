@@ -13,12 +13,18 @@
  *= require_tree .
  *= require_self
  */
- body { 
-    padding-top: 0px;
-    background-image: url(apartement.jpg);
-    background-size: 100%;
-    background-repeat: no-repeat;
+ body, html { 
+    height: 100%;
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #f7f5f3;
 }
-footer { margin-top: 100px; }
+
+main {
+    flex: 1 0 auto;
+}
+
 table, td, th { vertical-align: middle; border: none; }
 th { border-bottom: 1px solid #DDD; }

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col s10">
+    <div class="">
       <div class="card white">
         <div class="card-content">
             <%= form_with(model: location, local: true, :html => { :multipart => true }) do |form| %>
@@ -68,7 +68,7 @@
             </div>
         
             <div class="actions">
-              <%= form.submit 'Créer', :class => 'waves-effect waves-light btn blue' %>
+              <%= form.submit 'Créer', :class => 'waves-effect waves-light btn green' %>
             </div>
           <% end %>
         </div>

@@ -1,50 +1,9 @@
-<!-- <p id="notice"><%= notice %></p>
-<p>
-  <strong>Titre:</strong>
-  <%= @location.titre %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @location.description %>
-</p>
-<p>
-  <strong>Etat:</strong>
-  <%= @location.etat %>
-</p>
-<p>
-  <strong>Photo:</strong>
-  <%= @location.photo %>
-</p>
-<p>
-  <strong>Adresse:</strong>
-  <%= @location.adresse %>
-</p>
-<p>
-  <strong>Prix:</strong>
-  <%= @location.prix %>
-</p>
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
- -->
-<!-- <div class="col-md-12">
-  <%= form_for @reservation do |f| %>
-  
-  <%= f.number_field :nbre_personne, label: "Nombre de personne" %>
-  <%= f.date_select :date_debut_reservation, label: "Date de debut" %>
-  <%= f.date_select :date_fin_reservation, label: "Date de fin" %>
-  <%= f.hidden_field :location_id, :value => @location.id %>
-  <% if user_signed_in? %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-  <% end %>
-  <%= f.submit %>
-  <% end %>
-</div> -->
 <div class="container-fluid">
 <div class="row">
   <div class="col s12">
     <div class="carousel carousel-slider">
       <% @images.each do | image | %>
-        <%= image_tag(image.titre_url, width: '10%') if image.titre.present? %>
+        <a class="carousel-item" href="#"><%= image_tag(image.titre_url, width: '20%') if image.titre.present? %></a>
       <% end %>
     </div>
   </div>
@@ -60,7 +19,7 @@
           <p><%= @location.description %></p>
         </div>
         <div class="col s3">
-          <button class="waves-effect waves-light btn blue"><%= etat %></button>
+          <button class="waves-effect waves-light btn green"><%= etat %></button>
           <p><b><%= @location.prix %> Fcfa / <%= @location.duree %></b></p>
         </div>
       </div><br>
@@ -75,9 +34,9 @@
       <div class="card white">
         <div class="card-content">
           <!-- Réserver box modal -->
-          <a class="waves-effect waves-light btn blue modal-trigger" href="#reserver">Reserver</a><br><br>
+          <a class="waves-effect waves-light btn green modal-trigger" href="#reserver">Reserver</a><br><br>
           <!-- Louer box modal -->
-          <a class="waves-effect waves-light btn blue modal-trigger" href="#louer">Louer</a><br><br>
+          <a class="waves-effect waves-light btn green modal-trigger" href="#louer">Louer</a><br><br>
 
           <!-- Réserver modal structure -->
           <div id="reserver" class="modal modal-fixed-footer">
@@ -124,7 +83,7 @@
             </div>
             <div class="modal-footer">
               <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
-              <%= f.submit 'Valider', :class => 'waves-effect waves-light btn blue' %>
+              <%= f.submit 'Valider', :class => 'waves-effect waves-light btn green' %>
             </div>
             <% end %>
           </div>
@@ -145,7 +104,7 @@
               </div>
               <div class="modal-footer">
                 <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
-                <%= f.submit 'Valider', :class => 'waves-effect waves-light btn blue' %>
+                <%= f.submit 'Valider', :class => 'waves-effect waves-light btn green' %>
               </div>
               <% end %>
             </div>

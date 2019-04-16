@@ -1,19 +1,37 @@
-<h1>CONFIRMATION</h1>
-
+<div class="container">
   <div class="row">
-      <div class="col-md-12">
-        <h4><%= @reservation.location.titre %> </h4>
-        <%= @reservation.location.description %>
-        <%= @reservation.location.prix %>
-        <%= @reservation.nbre_personne %>
-        <%= @reservation.date_debut_reservation %>
-        <%= @reservation.date_fin_reservation %>
+    <div class="col s12 m8 push-m2">
+      <h4>Confirmer votre réservation</h4>
+      <table>
+        <thead>
+          <tr>
+              <th>Appartement</th>
+              <th>Description</th>
+              <th>Prix</th>
+              <th>Nombre de personne</th>
+              <th>Date d'entrée</th>
+              <th>Date de sortie</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @reservation.location.titre %></td>
+            <td><%= @reservation.location.description %></td>
+            <td><%= @reservation.location.prix %></td>
+            <td><%= @reservation.nbre_personne %></td>
+            <td><%= @reservation.date_debut_reservation %></td>
+            <td><%= @reservation.date_fin_reservation %></td>
+            <td>
+              <%= form_for @contrat do |form| %>
+                <%= form.hidden_field :reservation_id, :value => @reservation.id %>
+                <%= form.submit 'Confirmer', :class => "waves-effect waves-light btn green" %>
 
-        <%= form_for @contrat do |form| %>
-
-          <%= form.hidden_field :reservation_id, :value => @reservation.id %>
-          <%= form.submit 'Confirmer', :class => "btn btn-success" %>
-
-        <% end %>
-      </div>
+              <% end %>
+          
+          </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+</div>
