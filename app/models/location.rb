@@ -1,5 +1,7 @@
 class Location < ApplicationRecord
-
+  belongs_to :admin_user
+  scope :published, -> { where(etat: true) }
+  scope :unpublished, -> { where.not(etat: true) }
   paginates_per 10
 
   validates :duree, presence: { message: ': Vous devez choisir une durée' }
@@ -11,7 +13,7 @@ class Location < ApplicationRecord
   scope :dispo, -> { where(:etat => 1)}
 
   has_many :reservations
-  has_many :images, dependent: :delete_all
+  has_many :images
 
   accepts_nested_attributes_for :images
 

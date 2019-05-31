@@ -4,7 +4,6 @@ class CreateLocations < ActiveRecord::Migration[5.2]
       t.string :titre
       t.text :description
       t.boolean :etat
-      t.string :photo
       t.text :adresse
       t.integer :prix
 

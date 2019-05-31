@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :contrats, except: [:edit, :update] do
     collection do
       get 'me', to: 'contrats#me', as: 'me'
@@ -7,15 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-  namespace :admin do
-      resources :users
-      resources :locations
-      resources :reservations
 
-      root to: "users#index"
-    end
   devise_for :users, :controllers => {
     :omniauth_callbacks => "users/omniauth_callbacks",
     :registrations => "users/registrations"
