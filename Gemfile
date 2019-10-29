@@ -65,7 +65,7 @@ gem 'carrierwave','~>0.11.2'
 
 gem 'kaminari'
 
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.7'
 
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 
