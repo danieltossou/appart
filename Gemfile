@@ -67,7 +67,7 @@ gem 'kaminari'
 
 gem 'devise', '~> 4.2'
 
-gem 'omniauth', '~> 1.6', '>= 1.6.1'
+gem 'omniauth', '~> 1.9'
 
 gem 'omniauth-facebook'
 
